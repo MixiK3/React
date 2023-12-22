@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Artem = () => {
-  return <>Я родился</>
+export const Artem = () => {
+  return <>Я Artem</>
 }
 
 export default Artem

@@ -1,39 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Button, TableColumnsType } from 'antd'
 import './App.css'
+import Navbar from './components/Navbar'
+import GlobalStyles from './global-styles'
 
 const data = [
-  { name: 'John', age: 25, address: '123 Street' },
-  { name: 'Bob', age: 40, address: '789 Road' },
-  { name: 'John', age: 25, address: '123 Street' },
-  { name: 'Jane', age: 30, address: '456 Avenue' },
-  { name: 'Bob', age: 40, address: '789 Road' },
-  { name: 'Alice', age: 35, address: '321 Boulevard' },
-  { name: 'David', age: 28, address: '555 Court' },
-  { name: 'Eva', age: 33, address: '678 Lane' },
-  { name: 'Michael', age: 45, address: '910 Drive' },
-  { name: 'Sarah', age: 29, address: '222 Terrace' },
-  { name: 'Ryan', age: 32, address: '333 Circle' },
-  { name: 'Olivia', age: 37, address: '444 Lane' },
-  { name: 'Liam', age: 31, address: '555 Place' },
-  { name: 'Sophia', age: 36, address: '666 Road' },
-  { name: 'James', age: 42, address: '777 Avenue' },
-  { name: 'Emily', age: 27, address: '888 Street' },
-  { name: 'Matthew', age: 34, address: '999 Court' },
-  { name: 'Ava', age: 39, address: '000 Drive' },
-  { name: 'Daniel', age: 26, address: '111 Terrace' },
-  { name: 'Chloe', age: 41, address: '222 Circle' },
-  { name: 'Benjamin', age: 38, address: '333 Boulevard' },
-  { name: 'Mia', age: 43, address: '444 Place' },
-  { name: 'William', age: 24, address: '555 Lane' },
-  { name: 'Amelia', age: 46, address: '666 Road' },
-  { name: 'Ethan', age: 23, address: '777 Avenue' },
-  { name: 'Victoria', age: 44, address: '888 Street' },
-  { name: 'Madison', age: 22, address: '999 Court' },
-  { name: 'Aiden', age: 47, address: '000 Drive' },
-  { name: 'Grace', age: 21, address: '111 Terrace' },
-  { name: 'Logan', age: 48, address: '222 Circle' },
-  { name: 'Natalie', age: 20, address: '333 Boulevard' },
+  { key: '1', name: 'John', age: 25, address: '123 Street' },
+  { key: '2', name: 'Bob', age: 40, address: '789 Road' },
+  { key: '3', name: 'John', age: 25, address: '123 Street' },
+  { key: '4', name: 'Jane', age: 30, address: '456 Avenue' },
+  { key: '5', name: 'Bob', age: 40, address: '789 Road' },
+  { key: '6', name: 'Alice', age: 35, address: '321 Boulevard' },
+  { key: '7', name: 'David', age: 28, address: '555 Court' },
+  { key: '8', name: 'Eva', age: 33, address: '678 Lane' },
+  { key: '9', name: 'Michael', age: 45, address: '910 Drive' },
+  { key: '10', name: 'Sarah', age: 29, address: '222 Terrace' },
+  { key: '11', name: 'Ryan', age: 32, address: '333 Circle' },
+  { key: '12', name: 'Olivia', age: 37, address: '444 Lane' },
+  { key: '13', name: 'Liam', age: 31, address: '555 Place' },
+  { key: '14', name: 'Sophia', age: 36, address: '666 Road' },
+  { key: '15', name: 'James', age: 42, address: '777 Avenue' },
+  { key: '16', name: 'Emily', age: 27, address: '888 Street' },
+  { key: '17', name: 'Matthew', age: 34, address: '999 Court' },
+  { key: '18', name: 'Ava', age: 39, address: '000 Drive' },
+  { key: '19', name: 'Daniel', age: 26, address: '111 Terrace' },
+  { key: '20', name: 'Chloe', age: 41, address: '222 Circle' },
+  { key: '21', name: 'Benjamin', age: 38, address: '333 Boulevard' },
+  { key: '22', name: 'Mia', age: 43, address: '444 Place' },
+  { key: '23', name: 'William', age: 24, address: '555 Lane' },
+  { key: '24', name: 'Amelia', age: 46, address: '666 Road' },
+  { key: '25', name: 'Ethan', age: 23, address: '777 Avenue' },
+  { key: '26', name: 'Victoria', age: 44, address: '888 Street' },
+  { key: '27', name: 'Madison', age: 22, address: '999 Court' },
+  { key: '28', name: 'Aiden', age: 47, address: '000 Drive' },
+  { key: '29', name: 'Grace', age: 21, address: '111 Terrace' },
+  { key: '30', name: 'Logan', age: 48, address: '222 Circle' },
+  { key: '31', name: 'Natalie', age: 20, address: '333 Boulevard' },
   // add more data as needed
 ]
 
@@ -67,8 +69,11 @@ const App = () => {
 
   const handleNext = () => {
     const offset = page * limit
-    fetchTableData(offset, limit)
-    setPage(page + 1)
+    const dataSlice = data.slice(offset, offset + limit)
+    if (dataSlice.length > 0) {
+      fetchTableData(offset, limit)
+      setPage(page + 1)
+    }
   }
 
   const columns: TableColumnsType<{
@@ -92,9 +97,12 @@ const App = () => {
       key: 'address',
     },
   ]
-
+  const [isAuth, setIsAuth] = useState(false)
   return (
     <div>
+      <GlobalStyles></GlobalStyles>
+      <Navbar setIsAuth={setIsAuth} isAuth={isAuth} />
+
       <Table columns={columns} dataSource={tableData} />
       <div className="pagination">
         <Button onClick={handlePrevious} disabled={page === 1}>

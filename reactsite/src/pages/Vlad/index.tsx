@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Vlad = () => {
-  return <>Я родился быстрее</>
+export const Vlad = () => {
+  return <>Я Vlad</>
 }
 
 export default Vlad
