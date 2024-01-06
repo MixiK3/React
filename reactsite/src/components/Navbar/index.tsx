@@ -26,13 +26,12 @@ const Navbar = ({
     <nav className="navbar">
       {/* Ссылки для навигации */}
       <Link to={ARTEM_ROUTE}>ARTEM_ROUTE</Link>
-      <br />
+
       <Link to={VLAD_ROUTE}>VLAD_ROUTE</Link>
-      <br />
+
       <Link to={OLEG_ROUTE}>OLEG_ROUTE</Link>
-      <br />
+
       <Link to={GENA_ROUTE}>GENA_ROUTE</Link>
-      <br />
 
       {/* Кнопка для авторизации */}
       <button onClick={handleAuth}>{isAuth ? 'Выйти' : 'Войти'}</button>

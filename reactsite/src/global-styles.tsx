@@ -15,7 +15,19 @@ const GlobalStyles = createGlobalStyle`
     color: #333333;
     margin-bottom: 1.5rem;
   }
-
+ a{
+  color: #007bff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin:10px;
+  &:hover {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+ }
   h2 {
     font-size: 2rem;
     color: #555555;
@@ -50,7 +62,7 @@ const GlobalStyles = createGlobalStyle`
     :focus {
       outline: none;
       border-color: #007bff;
-    }
+    }    
   }
 
 `
