@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import './App.css'
 import Navbar from './components/Navbar'
-import GlobalStyles from './global-styles'
-import TableComponent from './components/TableComponent'
+import GlobalStyles from './styles/global-styles'
+import MainRouter from './main'
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(false)
   return (
     <div>
-      <GlobalStyles></GlobalStyles>
       <Navbar setIsAuth={setIsAuth} isAuth={isAuth} />
-      <TableComponent />
+
+      <GlobalStyles></GlobalStyles>
+      <MainRouter />
     </div>
   )
 }

@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Navigate,
-  Route,
-  RouteObject,
-  Routes,
-  useRoutes,
-} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Vlad from '../../pages/Vlad'
 import Artem from '../../pages/Artem'
 import Oleg from '../../pages/Oleg'
