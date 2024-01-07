@@ -8,7 +8,6 @@ const App = () => {
   return (
     <div>
       <Navbar setIsAuth={setIsAuth} isAuth={isAuth} />
-
       <GlobalStyles></GlobalStyles>
       <MainRouter />
     </div>
