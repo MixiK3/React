@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+ФИО: Дудин Максим Анатольевич группа: 221-323
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
